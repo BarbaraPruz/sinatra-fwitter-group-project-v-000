@@ -1,5 +1,5 @@
 require './config/environment'
-
+require 'pry'
 class TweetsController < ApplicationController
 
   configure do
@@ -26,6 +26,7 @@ class TweetsController < ApplicationController
     redirect '/tweets'
   end
   get '/tweets/new' do
+    binding.pry
     redirect "/login" if !logged_in?
     erb :"/tweets/create_tweet"
   end
